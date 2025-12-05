@@ -1,38 +1,137 @@
-.body {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
 }
 
-.navBar {
+.body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: aliceblue;
+}
+
+/* navbar*/
+.navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px;
-    height: 3rem;
-    background-color: rgba(1, 95, 24, 0.877);
+    padding: 1.4rem 7%;
+    background-image: linear-gradient(to left, #7dd3b9, #2a8bc4);
+    border-bottom: 2px solid #83eeca;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999999;
 }
 
-.navLogo h1 {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+.navbar .navLogo a {
     font-size: 24px;
-    text-align: left;
-}
-
-.navBar ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-}
-
-.navLinks li a {
-    margin-right: 20px;
-    text-decoration: none;
-    color: black;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 18px;
-}
-
-.navLinks li a:hover {
+    font-weight: 700;
     color: white;
+    font-style: italic;
+}
+
+.navbar .navLogo span {
+    color: rgb(240, 202, 132);
+}
+
+.navbar .navBar-nav a {
+    color: #fff;
+    display: inline-block;
+    margin: 0 1rem;
+    font-size: 1.3rem;
+}
+
+.navbar .navBar-nav a:hover {
+    color: rgb(41, 235, 115);
+}
+
+.navbar .navBar-nav a::after {
+    content: '';
+    display: block;
+    padding-bottom: 0.1rem;
+    border-bottom: 2px solid rgb(41, 235, 115);
+    transform: scaleX(0);
+    transition: 0.2s linear;
+}
+
+.navbar .navBar-nav a:hover::after {
+    transform: scaleX(0.5);
+}
+
+.navbar .navbar-Icons a {
+    color: #fff;
+    margin: 0 0.5rem;
+}
+
+.navbar .navbar-Icons a:hover {
+    color: rgb(41, 235, 115);
+}
+
+#menu {
+    display: none;
+}
+
+/*Media Quaries*/
+
+/*Laptop*/
+@media (max-width: 1366px) {
+    html {
+        font-size: 75%;
+    }
+}
+
+/*Tablet*/
+@media (max-width: 758px) {
+    html {
+        font-size: 62.5%;
+    }
+
+    #menu {
+        display: inline-block;
+    }
+
+    .navbar .navBar-nav {
+        position: absolute;
+        top: 100%;
+        right: -100%;
+        background-color: #9e9a9a;
+        width: 30rem;
+        height: 100vh;
+        transition: 0.3s;
+    }
+
+    .navbar .navBar-nav.active {
+        right: 0;
+    }
+
+    .navbar .navBar-nav a {
+        display: block;
+        color: #000;
+        margin: 1.5rem;
+        font-size: 2rem;
+    }
+
+    .navbar .navBar-nav a:hover {
+        color: #fff;
+    }
+
+    .navbar .navBar-nav a::after {
+        border-bottom: 2px solid #fff;
+        transform-origin: 0 0;
+    }
+
+    .navbar .navBar-nav a:hover::after {
+        transform: scaleX(0.2);
+    }
+}
+
+/*Mobile*/
+@media (max-width: 450px) {
+    html {
+        font-size: 55%;
+    }
 }

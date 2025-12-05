@@ -9,28 +9,31 @@
     </head>
     <body>
         <!--Navbar Start-->
-        <nav class="navBar">
+        <nav class="navbar">
             <div class="navLogo">
-                <h1>KLINIK SMARTONE</h1>
+                <a href="#">KLINIK<span>SMARTONE</span></a>
             </div>
 
-            <ul class="navLinks">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Contact</a></li>
+            <div class="navBar-nav">
+                <a href="#">Home</a>
+                <a href="#service">Service</a>
+                <a href="#about">Profile</a>
+                <a href="#kontak">Contact</a>
+            </div>
 
-                <div class="navbar-Icons">
-                    <i data-feather="search"></i>
-                    <i data-feather="home"></i>
-                    <i data-feather="menu"></i>
-                </div>
-            </ul>
+            <div class="navbar-Icons">
+                <a href="#" id="menu"><i data-feather="menu"></i></a>
+                <a href="#" id="search"><i data-feather="search"></i></a>
+                <a href="#" id="home"><i data-feather="home"></i></a>
+            </div>
         </nav>
         <!--Icons-->
         <script>
-            feather.replace()
-        </script>
+        feather.replace()
+            </script>
         <!--Navbar End-->
+
+        <!--My Js-->
+        <script src="script.js"></script>
     </body>
 </html>
