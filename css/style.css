@@ -1,3 +1,4 @@
+/* ... (kode CSS yang sudah ada) ... */
 * {
     margin: 0;
     padding: 0;
@@ -7,9 +8,13 @@
     text-decoration: none;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 .body {
     font-family: 'Poppins', sans-serif;
-    min-height: 8000px;
+    /* min-height: 8000px; */
 }
 
 /* navbar*/
@@ -18,8 +23,8 @@
     justify-content: space-between;
     align-items: center;
     padding: 1.4rem 7%;
-    background-image: linear-gradient(to left, #7dd3b9, #2a8bc4);
-    border-bottom: 2px solid #83eeca;
+    background-image: linear-gradient(90deg, #1b4fa8, #6b4fa8, #c21878);
+    border-bottom: 2px solid #171a19;
     position: fixed;
     top: 0;
     left: 0;
@@ -35,27 +40,27 @@
 }
 
 .navbar .navLogo span {
-    color: rgb(240, 202, 132);
+    color: rgb(236, 138, 185);
 }
 
 .navbar .navBar-nav a {
-    color: #fff;
+    color: #f1f1f1;
     display: inline-block;
     margin: 0 1rem;
     font-size: 1.3rem;
 }
 
 .navbar .navBar-nav a:hover {
-    color: rgb(41, 235, 115);
+    color: hsl(345, 100%, 79%);
 }
 
 .navbar .navBar-nav a::after {
     content: '';
     display: block;
     padding-bottom: 0.1rem;
-    border-bottom: 2px solid rgb(41, 235, 115);
+    border-bottom: 2px solid rgb(235, 165, 199);
     transform: scaleX(0);
-    transition: 0.2s linear;
+    transition: 0.3s linear;
 }
 
 .navbar .navBar-nav a:hover::after {
@@ -68,7 +73,18 @@
 }
 
 .navbar .navbar-Icons a:hover {
-    color: rgb(41, 235, 115);
+    color: rgb(0, 0, 0);
+}
+
+/* Active menu saat scroll */
+.navBar-nav a.active {
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+}
+
+.navBar-nav a.active::after {
+    transform: scaleX(0.5);
+    border-bottom: 2px solid rgb(0, 0, 0);
 }
 
 #menu {
@@ -80,7 +96,7 @@
     min-height: 100vh;
     display: flex;
     align-items: center;
-    background-image: url('../img/header-bg2.jpg');
+    background-image: url('../img/background.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -93,7 +109,7 @@
     position: absolute;
     width: 100%;
     height: 10px;
-    background: linear-gradient(0deg, rgb(228, 228, 228, 1) 8%, rgba(154, 176, 190, 0.5) 55%);
+    background: linear-gradient(0deg, rgb(255, 255, 255) 8%, rgba(255, 255, 255, 0.5) 55%);
     bottom: 0;
 }
 
@@ -104,22 +120,22 @@
 
 .home .content h1 {
     font-size: 5em;
-    color: #fff;
+    color: #b435b4;
     text-shadow: 1px 1px 3px rgba(42, 139, 196, 0.5);
     line-height: 1.2;
 }
 
 .home .content span {
-    color: rgb(240, 202, 132);
+    color: rgb(15, 53, 133);
 }
 
 .home .content p {
-    color: #fff;
+    color: hsl(326, 100%, 31%);
     font-size: 1.6rem;
     margin-top: 1rem;
     line-height: 1.4;
     font-weight: 100;
-    text-shadow: 1px 1px 3px rgba(1, 1, 1, 0.5);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .home .content .cta {
@@ -128,7 +144,7 @@
     padding: 1rem 3rem;
     font-size: 1.6rem;
     color: #fff;
-    background-color: #2a8bc4;
+    background-image: linear-gradient(90deg, #1b4fa8, #6b4fa8, #c21878);
     border-radius: 0.5rem;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
 }
@@ -149,7 +165,7 @@
 
 .service h2 span,
 .contact h2 span {
-    color: rgb(240, 202, 132);
+    color: rgb(0, 93, 215);
 }
 
 .service .row {
@@ -194,7 +210,7 @@
 }
 
 .about span {
-    color: rgb(240, 202, 132);
+    color: rgb(0, 93, 215);
 }
 
 .about p,
@@ -262,6 +278,58 @@
     background-color: none;
 }
 
+.contact .row form .btn {
+    margin-top: 3rem;
+    display: inline-block;
+    padding: 1rem 3rem;
+    font-size: 1.7rem;
+    color: #fff;
+    background-image: linear-gradient(90deg, #1b4fa8, #6b4fa8, #c21878);
+    cursor: pointer;
+}
+
+/* Footer Section */
+footer {
+    background-image: linear-gradient(90deg, #1b4fa8, #6b4fa8, #c21878);
+    text-align: center;
+    padding: 1rem 0 3rem;
+    margin-top: 3rem;
+}
+
+footer .social {
+    padding: 1rem 0;
+}
+
+footer .social a {
+    color: #ffffff;
+    margin: 0 1rem;
+}
+
+footer .social a:hover,
+footer .links a:hover {
+    color: rgb(47, 7, 97);
+}
+
+
+
+footer .links {
+    margin-bottom: 1.4rem;
+}
+
+footer .links a {
+    color: #fff;
+    padding: 0.7rem 1rem;
+}
+
+footer .credit {
+    font-size: 0.8rem;
+}
+
+footer .credit a {
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+}
+
 
 
 /*Media Quaries*/
@@ -287,7 +355,7 @@
         position: absolute;
         top: 100%;
         right: -100%;
-        background-color: #9e9a9a;
+        background-image: linear-gradient(to top, #1b4fa8, #6b4fa8, #c21878);
         width: 30rem;
         height: 100vh;
         transition: 0.3s;
@@ -299,7 +367,7 @@
 
     .navbar .navBar-nav a {
         display: block;
-        color: #000;
+        color: #ffffff;
         margin: 1.5rem;
         font-size: 2rem;
     }
@@ -343,11 +411,116 @@
     .about .row p {
         font-size: 1.2rem;
     }
+
+    .contact .row {
+        flex-wrap: wrap;
+    }
+
+    .contact .row .map {
+        height: 40rem;
+    }
+
+    .contact .row form {
+        padding-top: 0;
+    }
 }
 
 /*Mobile*/
 @media (max-width: 450px) {
     html {
         font-size: 55%;
+    }
+}
+
+/* Team Section */
+.team {
+    padding: 8rem 7% 1.4rem;
+    background-color: #f7f7f7;
+}
+
+.team h2 {
+    text-align: center;
+    font-size: 2.6rem;
+    margin-bottom: 3rem;
+}
+
+.team h2 span {
+    color: rgb(0, 93, 215);
+}
+
+.team p {
+    text-align: center;
+    max-width: 40rem;
+    margin: auto;
+    font-weight: 300;
+    line-height: 1.6;
+    margin-bottom: 3rem;
+}
+
+.team .team-slider {
+    padding: 2rem 0;
+}
+
+.team .team-card {
+    text-align: center;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 0.8rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 1rem;
+}
+
+.team .team-card img {
+    border-radius: 50%;
+    width: 15rem;
+    height: 15rem;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: 5px solid rgb(0, 93, 215);
+}
+
+.team .team-card .team-card-title {
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.team .team-card .team-card-role {
+    font-size: 1.2rem;
+    color: #c21878;
+    font-weight: 400;
+}
+
+/* Penyesuaian Owl Carousel Navigation (Opsional) */
+.team .owl-nav button.owl-prev,
+.team .owl-nav button.owl-next {
+    background: rgb(0, 93, 215) !important;
+    color: #fff !important;
+    border-radius: 50% !important;
+    width: 3rem !important;
+    height: 3rem !important;
+    font-size: 1.5rem !important;
+    line-height: 1 !important;
+    margin: 0 5px !important;
+    transition: 0.3s;
+}
+
+.team .owl-nav button.owl-prev:hover,
+.team .owl-nav button.owl-next:hover {
+    background: #c21878 !important;
+}
+
+.team .owl-dots .owl-dot.active span,
+.team .owl-dots .owl-dot:hover span {
+    background: rgb(0, 93, 215) !important;
+}
+
+
+/*Tablet*/
+@media (max-width: 755px) {
+
+    .team .team-card img {
+        width: 12rem;
+        height: 12rem;
     }
 }

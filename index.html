@@ -5,19 +5,23 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
         <script src="https://unpkg.com/feather-icons"></script>
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
-        <!--Navbar Start-->
         <nav class="navbar">
             <div class="navLogo">
                 <a href="#">KLINIK<span>SMARTONE</span></a>
+
             </div>
 
             <div class="navBar-nav">
                 <a href="#">Home</a>
                 <a href="#service">Service</a>
-                <a href="#about">About</a>
+                <a href="#team">Team</a> <a href="#about">About</a>
                 <a href="#contact">Contact</a>
             </div>
 
@@ -28,9 +32,6 @@
             </div>
         </nav>
 
-        <!--Navbar End-->
-
-        <!--Hero Section start-->
         <section class="home" id="home">
             <main class="content">
                 <h1>Welcome to Klinik <span>Smartone</span></h1>
@@ -40,18 +41,11 @@
                 <a href="#" class="cta">Explore Services</a>
             </main>
         </section>
-        <!--Hero Section END-->
-
-        <!-- Service section start -->
         <section id="service" class="service">
             <h2><span>Tentang Klinik</span> Smartone</h2>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Enim eveniet maiores voluptas fuga aut atque.
-            </p>
-
             <div class="row">
                 <div class="service-img">
-                    <img src="img/tentangSmartone.jpg"
+                    <img src="img/klinikk.jpg"
                         alt="Tentang Klinik Smartone">
                 </div>
                 <div class="content">
@@ -65,50 +59,40 @@
                 </div>
             </div>
         </section>
-        <!-- Service section end  -->
+        <section id="team" class="team">
+            <h2>Our <span>Expert Team</span></h2>
+            <p>Bertemu dengan para profesional yang berdedikasi di Klinik
+                Smartone.</p>
 
-        <!-- About Section start -->
-        <section id="about" class="about">
-            <h2><span>About Klinik</span> Smartone</h2>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                Quia fuga illum, id commodi sed nisi dolorem
-                molestiae deleniti dolore a incidunt rem consectetur voluptate
-                dolor.
-            </p>
-
-            <div class="row">
-                <div class="about-card">
-                    <img src="img/profileImg - Diedit.jpg" alt="Contoh Gambar">
-                    <h3 class="about-card-title">- About -</h3>
-                    <p class="about-card-price">IDR 150K</p>
-                </div><div class="about-card">
-                    <img src="img/profileImg - Diedit.jpg" alt="Contoh Gambar">
-                    <h3 class="about-card-title">- About -</h3>
-                    <p class="about-card-price">IDR 150K</p>
-                </div><div class="about-card">
-                    <img src="img/profileImg - Diedit.jpg" alt="Contoh Gambar">
-                    <h3 class="about-card-title">- About -</h3>
-                    <p class="about-card-price">IDR 150K</p>
-                </div><div class="about-card">
-                    <img src="img/profileImg - Diedit.jpg" alt="Contoh Gambar">
-                    <h3 class="about-card-title">- About -</h3>
-                    <p class="about-card-price">IDR 150K</p>
+            <div class="owl-carousel owl-theme team-slider">
+                <div class="item team-card">
+                    <img src="img/profileImg - Diedit.jpg" alt="Dr. John Doe">
+                    <h3 class="team-card-title">Dr. John Doe</h3>
+                    <p class="team-card-role">General Practitioner</p>
                 </div>
-                <div class="about-card">
-                    <img src="img/profileImg - Diedit.jpg" alt="Contoh Gambar">
-                    <h3 class="about-card-title">- About -</h3>
-                    <p class="about-card-price">IDR 150K</p>
+                <div class="item team-card">
+                    <img src="img/profileImg - Diedit.jpg" alt="Dr. Jane Smith">
+                    <h3 class="team-card-title">Dr. Jane Smith</h3>
+                    <p class="team-card-role">Pediatrician</p>
                 </div>
-                <div class="about-card">
-                    <img src="img/profileImg - Diedit.jpg" alt="Contoh Gambar">
-                    <h3 class="about-card-title">- About -</h3>
-                    <p class="about-card-price">IDR 150K</p>
+                <div class="item team-card">
+                    <img src="img/profileImg - Diedit.jpg" alt="Nurse Alice">
+                    <h3 class="team-card-title">Nurse Alice</h3>
+                    <p class="team-card-role">Head Nurse</p>
+                </div>
+                <div class="item team-card">
+                    <img src="img/profileImg - Diedit.jpg" alt="Dr. Bob Brown">
+                    <h3 class="team-card-title">Dr. Bob Brown</h3>
+                    <p class="team-card-role">Dermatologist</p>
+                </div>
+                <div class="item team-card">
+                    <img src="img/profileImg - Diedit.jpg" alt="Dr. Lisa White">
+                    <h3 class="team-card-title">Dr. Lisa White</h3>
+                    <p class="team-card-role">Dentist</p>
                 </div>
             </div>
         </section>
-        <!-- About Section end -->
 
-        <!-- Contact Section start -->
         <section id="contact" class="contact">
             <h2><span>Kontak </span>Kami</h2>
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
@@ -143,13 +127,31 @@
                 </form>
             </div>
         </section>
-        <!-- Contact Section end-->
+        <footer>
+            <div class="social">
+                <a href="#"><i data-feather="facebook"></i></a>
+                <a href="#"><i data-feather="instagram"></i></a>
+                <a href="#"><i data-feather="twitter"></i></a>
+            </div>
 
-        <!--Icons-->
+            <div class="links">
+                <a href="#">Home</a>
+                <a href="#service">Service</a>
+                <a href="#team">Team</a> <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </div>
+
+            <div class="credit">
+                <p>Created by <a href>UNITY</a>. | ©2025.</p>
+            </div>
+        </footer>
         <script>
             feather.replace();
         </script>
-        <!--My Js-->
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
         <script src="js/script.js"></script>
     </body>
 </html>
