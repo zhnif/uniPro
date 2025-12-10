@@ -12,7 +12,11 @@ html {
     scroll-behavior: smooth;
 }
 
-.body {
+body {
+    background-image: linear-gradient(90deg, #0e2f68, #332158, #640c3e);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
     font-family: 'Poppins', sans-serif;
     /* min-height: 8000px; */
 }
@@ -76,15 +80,26 @@ html {
     color: rgb(0, 0, 0);
 }
 
+/* Default: Search icon visible */
+#search {
+    display: inline-block;
+    cursor: pointer;
+}
+
+/* Default: Search input hidden */
+.search-input-desktop {
+    display: none;
+}
+
 /* Active menu saat scroll */
 .navBar-nav a.active {
-    color: rgb(0, 0, 0);
+    color: rgb(235, 165, 199);
     font-weight: bold;
 }
 
 .navBar-nav a.active::after {
     transform: scaleX(0.5);
-    border-bottom: 2px solid rgb(0, 0, 0);
+    border-bottom: 2px solid rgb(235, 165, 199);
 }
 
 #menu {
@@ -130,11 +145,11 @@ html {
 }
 
 .home .content p {
-    color: hsl(326, 100%, 31%);
+    color: #110f11;
     font-size: 1.6rem;
     margin-top: 1rem;
     line-height: 1.4;
-    font-weight: 100;
+    font-weight: bold;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
@@ -151,54 +166,8 @@ html {
 
 
 /* About Section */
-.service,
+.about,
 .contact {
-    padding: 8rem 7% 1.4rem;
-}
-
-.service h2,
-.contact h2 {
-    text-align: center;
-    font-size: 2.6rem;
-    margin-bottom: 3rem;
-}
-
-.service h2 span,
-.contact h2 span {
-    color: rgb(0, 93, 215);
-}
-
-.service .row {
-    display: flex;
-}
-
-.service .row .service-img {
-    flex: 1 1 45rem;
-}
-
-.service .row .service-img img {
-    width: 100%;
-}
-
-.service .row .content {
-    flex: 1 1 35rem;
-    padding: 0 2rem;
-}
-
-.service .row .content h3 {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-}
-
-.service .row .content p {
-    margin-bottom: 0.8rem;
-    font-size: 1.3rem;
-    font-weight: 100;
-    line-height: 1.6rem;
-}
-
-/* About Section */
-.about {
     padding: 8rem 7% 1.4rem;
 }
 
@@ -209,38 +178,99 @@ html {
     margin-bottom: 3rem;
 }
 
-.about span {
+.about h2 span,
+.contact h2 span {
     color: rgb(0, 93, 215);
-}
-
-.about p,
-.contact p {
-    text-align: center;
-    max-width: 30rem;
-    margin: auto;
-    font-weight: 100;
-    list-style: 1.6;
 }
 
 .about .row {
     display: flex;
-    flex-wrap: warp;
-    margin-top: 5rem;
-    justify-content: center;
 }
 
-.about .row .about-card {
+.about .row .about-img {
+    flex: 1 1 45rem;
+}
+
+.about .row .about-img img {
+    width: 100%;
+}
+
+.about .row .content {
+    flex: 1 1 35rem;
+    padding: 0 2rem;
+}
+
+.about .row .content h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.about .row .content p {
+    margin-bottom: 0.8rem;
+    font-size: 1.3rem;
+    font-weight: 100;
+    line-height: 1.6rem;
+}
+
+/* Service Section */
+.service {
+    padding: 8rem 7% 1.4rem;
+}
+
+.service h2 {
     text-align: center;
-    padding-bottom: 2rem;
+    font-size: 2.6rem;
+    margin-bottom: 1rem;
 }
 
-.about .row .about-card img {
-    border-radius: 50%;
-    width: 80%;
+.service h2 span {
+    color: rgb(0, 93, 215);
 }
 
-.about .row .about-card .about-card-title {
-    margin-top: 1rem auto o.5rem;
+.service>p {
+    text-align: center;
+    max-width: 60rem;
+    margin: 0 auto 3rem;
+    font-weight: 100;
+    line-height: 1.6;
+}
+
+.service-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.service-card {
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(6px);
+    border-radius: 0.8rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: 0.3s ease;
+}
+
+.service-card:hover {
+    background-color: rgba(255, 255, 255, 0.18);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.service-card h3 {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    color: rgb(0, 93, 215);
+    font-weight: 600;
+}
+
+.service-card p {
+    font-size: 1.1rem;
+    font-weight: 100;
+    line-height: 1.5;
+    color: #fff;
 }
 
 /* Contact Section */
@@ -334,10 +364,84 @@ footer .credit a {
 
 /*Media Quaries*/
 
-/*Laptop*/
-@media (max-width: 1366px) {
+/*Laptop/Desktop*/
+@media (min-width: 1367px) {
+    html {
+        font-size: 100%;
+    }
+
+    .navbar .navbar-Icons {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    /* Hide search icon on desktop - input always visible */
+    #search {
+        display: none;
+    }
+
+    .search-input-desktop {
+        display: inline-block;
+        padding: 0.6rem 1rem;
+        border: 2px solid #fff;
+        border-radius: 0.3rem;
+        background: transparent;
+        color: #fff;
+        font-size: 1rem;
+        width: 200px;
+        transition: all 0.3s ease;
+    }
+
+    .search-input-desktop::placeholder {
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+    .search-input-desktop:focus {
+        outline: none;
+        border-color: rgb(236, 138, 185);
+        box-shadow: 0 0 10px rgba(236, 138, 185, 0.3);
+        width: 250px;
+    }
+}
+
+@media (max-width: 1366px) and (min-width: 756px) {
     html {
         font-size: 75%;
+    }
+
+    .navbar .navbar-Icons {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    /* Hide search icon on tablet - input always visible */
+    #search {
+        display: none;
+    }
+
+    .search-input-desktop {
+        display: inline-block;
+        padding: 0.6rem 1rem;
+        border: 2px solid #fff;
+        border-radius: 0.3rem;
+        background: transparent;
+        color: #fff;
+        font-size: 1rem;
+        width: 180px;
+        transition: all 0.3s ease;
+    }
+
+    .search-input-desktop::placeholder {
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+    .search-input-desktop:focus {
+        outline: none;
+        border-color: rgb(236, 138, 185);
+        box-shadow: 0 0 10px rgba(236, 138, 185, 0.3);
+        width: 220px;
     }
 }
 
@@ -385,31 +489,73 @@ footer .credit a {
         transform: scaleX(0.2);
     }
 
-    .service .row {
+    /* Show search icon on mobile */
+    #search {
+        display: inline-block !important;
+    }
+
+    /* Hide search input by default */
+    .search-input-desktop {
+        display: none;
+    }
+
+    /* When navbar-Icons has search-active class, show search input as floating modal */
+    .navbar-Icons.search-active .search-input-desktop {
+        display: block !important;
+        position: fixed;
+        top: 80px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 0.8rem 1.5rem;
+        border: 2px solid #fff;
+        border-radius: 0.5rem;
+        background: rgba(27, 79, 168, 0.95);
+        backdrop-filter: blur(10px);
+        color: #fff;
+        font-size: 1rem;
+        width: 90%;
+        max-width: 300px;
+        z-index: 10000;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        transition: all 0.3s ease;
+    }
+
+    .navbar-Icons.search-active .search-input-desktop::placeholder {
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+    .navbar-Icons.search-active .search-input-desktop:focus {
+        outline: none;
+        border-color: rgb(236, 138, 185);
+        box-shadow: 0 0 15px rgba(236, 138, 185, 0.5);
+    }
+
+    /* Hide search icon when search-active is triggered */
+    .navbar-Icons.search-active #search {
+        display: none;
+    }
+
+    .about .row {
         flex-wrap: wrap;
     }
 
-    .service .row .service-img img {
+    .about .row .about-img img {
         height: 24rem;
         object-fit: cover;
         object-position: center;
     }
 
-    .service .row .content {
+    .about .row .content {
         padding: 0;
     }
 
-    .service .row .content h3 {
+    .about .row .content h3 {
         margin-top: 1rem;
         font-size: 2rem;
     }
 
-    .service .row .content p {
+    .about .row .content p {
         font-size: 1.6rem;
-    }
-
-    .about .row p {
-        font-size: 1.2rem;
     }
 
     .contact .row {
@@ -435,7 +581,6 @@ footer .credit a {
 /* Team Section */
 .team {
     padding: 8rem 7% 1.4rem;
-    background-color: #f7f7f7;
 }
 
 .team h2 {
@@ -452,7 +597,7 @@ footer .credit a {
     text-align: center;
     max-width: 40rem;
     margin: auto;
-    font-weight: 300;
+    font-weight: 600;
     line-height: 1.6;
     margin-bottom: 3rem;
 }
@@ -464,19 +609,25 @@ footer .credit a {
 .team .team-card {
     text-align: center;
     padding: 1rem;
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.12);
+    /* ← INI: transparan 12% opacity */
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(6px);
+    /* ← efek blur di belakang */
     border-radius: 0.8rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin: 1rem;
 }
 
 .team .team-card img {
+    display: block;
+    margin: 0 auto 1rem;
     border-radius: 50%;
     width: 15rem;
     height: 15rem;
     object-fit: cover;
     margin-bottom: 1rem;
-    border: 5px solid rgb(0, 93, 215);
+    border: 5px solid #c21878;
 }
 
 .team .team-card .team-card-title {
@@ -487,15 +638,15 @@ footer .credit a {
 
 .team .team-card .team-card-role {
     font-size: 1.2rem;
-    color: #c21878;
-    font-weight: 400;
+    color: #01b80a;
+    font-weight: bold;
 }
 
 /* Penyesuaian Owl Carousel Navigation (Opsional) */
 .team .owl-nav button.owl-prev,
 .team .owl-nav button.owl-next {
-    background: rgb(0, 93, 215) !important;
-    color: #fff !important;
+    background: #fff !important;
+    color: #c21878 !important;
     border-radius: 50% !important;
     width: 3rem !important;
     height: 3rem !important;
@@ -507,12 +658,12 @@ footer .credit a {
 
 .team .owl-nav button.owl-prev:hover,
 .team .owl-nav button.owl-next:hover {
-    background: #c21878 !important;
+    background: rgb(30, 255, 0) !important;
 }
 
 .team .owl-dots .owl-dot.active span,
 .team .owl-dots .owl-dot:hover span {
-    background: rgb(0, 93, 215) !important;
+    background: #c21878 !important;
 }
 
 
@@ -522,5 +673,18 @@ footer .credit a {
     .team .team-card img {
         width: 12rem;
         height: 12rem;
+    }
+}
+
+/* Medium Devices (1000px - 1080px) - Fix team card img overflow */
+@media (min-width: 1000px) and (max-width: 1080px) {
+    .team .team-card img {
+        width: 12rem;
+        height: 12rem;
+        margin: 0 auto 1rem;
+    }
+
+    .team .team-card {
+        padding: 1rem;
     }
 }

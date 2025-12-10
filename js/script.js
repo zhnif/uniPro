@@ -1,34 +1,39 @@
 // Toggle class active for navbar (defensive selectors)
 const navbarNav = document.querySelector('.navBar-nav');
-const menu = document.querySelector('#menu-btn') || document.querySelector('#menu');
+const menuBtn = document.querySelector('#menu');
 
-if (menu && navbarNav) {
-  menu.addEventListener('click', function (e) {
+if (menuBtn && navbarNav) {
+  menuBtn.addEventListener('click', function (e) {
     e.preventDefault();
-    // Toggle sidebar visibility
     navbarNav.classList.toggle('active');
   });
 }
 
-// Toggle class active for search form (defensive/fallbacks, fix typos)
-const searchForm = document.querySelector('.search-form') || document.querySelector('.search-from');
-const searchBox = document.querySelector('#search-box');
-const searchIcon = document.querySelector('#search') || document.querySelector('#search-button') || document.querySelector('#search-buttom');
+// Toggle search input pada desktop
+const searchInputDesktop = document.querySelector('.search-input-desktop');
+const searchIcon = document.querySelector('#search');
+const navbarIcons = document.querySelector('.navbar-Icons');
 
-if (searchIcon && searchForm) {
-  searchIcon.addEventListener('click', function (e) {
+if (searchIcon && searchInputDesktop && navbarIcons) {
+  searchIcon.addEventListener('click', function(e) {
     e.preventDefault();
-    searchForm.classList.toggle('active');
-    if (searchBox && typeof searchBox.focus === 'function') searchBox.focus();
+    navbarIcons.classList.toggle('search-active');
+    searchInputDesktop.focus();
   });
 }
 
-// Klik diluar sidebar untuk menghilangkan nav
+// Tutup sidebar dan search saat klik diluar
 document.addEventListener('click', function (e) {
-  if (!navbarNav) return;
-  // if click is outside both the menu button and the navbar, close the sidebar
-  if (menu && !menu.contains(e.target) && !navbarNav.contains(e.target)) {
-    navbarNav.classList.remove('active');
+  // Tutup sidebar jika klik diluar
+  if (navbarNav && menuBtn) {
+    if (!menuBtn.contains(e.target) && !navbarNav.contains(e.target)) {
+      navbarNav.classList.remove('active');
+    }
+  }
+  
+  // Tutup search jika klik diluar
+  if (navbarIcons && searchIcon && !navbarIcons.contains(e.target)) {
+    navbarIcons.classList.remove('search-active');
   }
 });
 
@@ -40,7 +45,7 @@ window.addEventListener('scroll', () => {
   let current = '';
 
   sections.forEach(section => {
-    const sectionTop = section.offsetTop - 120; // offset karena navbar fixed
+    const sectionTop = section.offsetTop - 120;
     const sectionHeight = section.offsetHeight;
 
     if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
