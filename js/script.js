@@ -180,6 +180,11 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function onPointerDown(e) {
+    // Ignore if clicking on controls
+    if (e.target.closest('.team-prev') || e.target.closest('.team-next') || e.target.closest('.team-dot')) {
+      return;
+    }
+
     isDragging = true;
     startX = e.clientX || (e.touches && e.touches[0].clientX) || 0;
     currentDelta = 0;
@@ -216,13 +221,19 @@ document.addEventListener('DOMContentLoaded', () => {
     try { if (e.pointerId) slider.releasePointerCapture(e.pointerId); } catch (err) { }
   }
 
-  // Pointer events
+  // Pointer events (Unified for Mouse & Touch)
+  // 'touch-action: pan-y' in CSS handles vertical scroll, we only care about horizontal drag here.
+
   slider.addEventListener('pointerdown', onPointerDown);
   window.addEventListener('pointermove', onPointerMove);
   window.addEventListener('pointerup', onPointerUp);
-  slider.addEventListener('touchstart', onPointerDown, { passive: true });
-  window.addEventListener('touchmove', onPointerMove, { passive: true });
-  window.addEventListener('touchend', onPointerUp);
+  window.addEventListener('pointercancel', onPointerUp); // Handle cancel events
+
+  // Remove redundant touch/mouse specific listeners to strictly use Pointer Events
+  // This prevents issues where both touch and mouse events might fire or conflict
+
+  // Ensure we don't interfere with vertical scrolling unless intended?
+  // relying on browser 'touch-action' behavior is best.
 
   window.addEventListener('resize', () => setSizes());
 
