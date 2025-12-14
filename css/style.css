@@ -99,8 +99,9 @@ body {
 
 .nav-cta:hover {
     transform: translateY(-3px);
-    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.22);
+    box-shadow: 0 12px 26px #ff00ff;
     opacity: 0.98;
+
 }
 
 @media (max-width: 755px) {
@@ -156,19 +157,19 @@ body {
 
 .home .content h1 {
     font-size: 5em;
-    color: #b435b4;
+    color: #ff00ff;
     text-shadow: 1px 1px 3px rgba(42, 139, 196, 0.5);
     line-height: 1.2;
     animation: slideInDown 1s ease-out, glow 2.5s ease-in-out infinite;
 }
 
 .home .content span {
-    color: rgb(15, 53, 133);
+    color: rgb(0, 255, 221);
     animation: colorShift 3s ease-in-out infinite;
 }
 
 .home .content p {
-    color: #1b4fa8;
+    color: #eeeff0;
     font-size: 1.6rem;
     margin-top: 1rem;
     line-height: 1.4;
