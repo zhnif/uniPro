@@ -1000,41 +1000,45 @@ section>p {
 
 .team-track {
     display: flex;
-    gap: 30px;
+    /* gap: 30px; Removed gap as it breaks percentage-based slider calculation */
     transition: transform 0.5s ease;
 }
 
 .team-card {
-    min-width: calc(20% - 24px);
+    min-width: 0;
+    /* Let JS control width via flex */
     text-align: center;
     padding: 20px;
+    box-sizing: border-box;
+    /* Ensure padding includes in width */
 }
 
 .team-card img {
-    width: 180px;
-    height: 180px;
+    width: 160px;
+    /* Slightly smaller for mobile fit */
+    height: 160px;
     border-radius: 50%;
     object-fit: cover;
-    border: 5px solid var(--light-gray);
+    border: 5px solid #f8fafc;
     margin-bottom: 20px;
-    transition: var(--transition);
+    transition: 0.3s;
 }
 
 .team-card:hover img {
     border-color: var(--primary);
     transform: scale(1.05);
-    box-shadow: var(--shadow-md);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .team-card-title {
-    font-size: 20px;
+    font-size: 1.3rem;
     font-weight: 700;
-    color: var(--black);
+    color: var(--text-dark);
     margin-bottom: 5px;
 }
 
 .team-card-role {
-    font-size: 14px;
+    font-size: 0.95rem;
     color: var(--primary);
     font-weight: 600;
     text-transform: uppercase;
@@ -1053,19 +1057,22 @@ section>p {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background: var(--primary);
-    color: var(--white);
+    background: white;
+    /* White background for controls */
+    color: var(--primary);
     border: none;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: var(--transition);
+    transition: 0.3s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .team-prev:hover,
 .team-next:hover {
-    background: var(--primary-dark);
+    background: var(--primary);
+    color: white;
     transform: scale(1.1);
 }
 
@@ -1074,6 +1081,23 @@ section>p {
     justify-content: center;
     gap: 10px;
     margin-top: 20px;
+}
+
+/* Ensure active dot is clearly visible */
+.team-dot {
+    width: 12px;
+    height: 12px;
+    background: #cbd5e1;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s;
+    border: none;
+}
+
+.team-dot.active {
+    background: var(--primary);
+    width: 30px;
+    border-radius: 10px;
 }
 
 #calcCta {
@@ -1335,25 +1359,6 @@ footer {
 }
 
 @media (max-width: 992px) {
-    .info-strip {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .about .row,
-    .contact .row {
-        grid-template-columns: 1fr;
-    }
-
-    .hpk-timeline {
-        grid-template-columns: 1fr;
-    }
-
-    .footer-container {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
-@media (max-width: 768px) {
     .top-bar {
         display: none;
     }
@@ -1388,6 +1393,26 @@ footer {
         display: none;
     }
 
+
+    .info-strip {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about .row,
+    .contact .row {
+        grid-template-columns: 1fr;
+    }
+
+    .hpk-timeline {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 768px) {
     .home .content h1 {
         font-size: 36px;
     }
@@ -1442,5 +1467,22 @@ footer {
     .btn-hero {
         padding: 12px 30px;
         font-size: 13px;
+    }
+
+    .calc-container {
+        padding: 1rem;
+    }
+
+    .btn-back {
+        width: 100% !important;
+        padding: .5rem 1rem !important;
+    }
+
+    .contact form {
+        padding: 1rem !important;
+    }
+
+    .contact form input {
+        padding-left: 1rem;
     }
 }
